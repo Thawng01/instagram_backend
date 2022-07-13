@@ -11,11 +11,6 @@ import config from "./startup/config.js";
 import route from "./startup/route.js";
 import db from "./startup/db.js";
 import prod from "./startup/prod.js";
-import logger from "./startup/logger.js";
-
-process.on("uncaughtException", (err) => {
-    logger.error("failed during start up", err);
-});
 
 const io = new Server(httpServer, {
     cors: {
