@@ -35,7 +35,7 @@ const corsOptions = {
 
 app.use(express.json());
 app.use(cors(corsOptions));
-prod();
+prod(app);
 route(app);
 db();
 config();
