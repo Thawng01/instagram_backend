@@ -17,7 +17,7 @@ const corsOptions = {
 };
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 prod(app);
 route(app);
 db();
