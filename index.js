@@ -12,6 +12,17 @@ import route from "./startup/route.js";
 import db from "./startup/db.js";
 import prod from "./startup/prod.js";
 
+const corsOptions = {
+    exposedHeaders: "x_auth_token",
+};
+
+app.use(express.json());
+app.use(cors(corsOptions));
+prod(app);
+route(app);
+db();
+config();
+
 const io = new Server(httpServer, {
     cors: {
         origin: "https://insta-clone-ui.netlify.app/",
@@ -23,17 +34,6 @@ io.on("connection", (socket) => {
         socket.emit("get-comment", data);
     });
 });
-
-const corsOptions = {
-    exposedHeaders: "x_auth_token",
-};
-
-app.use(express.json());
-app.use(cors(corsOptions));
-prod(app);
-route(app);
-db();
-config();
 
 const port = process.env.PORT || 9000;
 
