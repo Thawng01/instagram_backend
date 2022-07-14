@@ -14,7 +14,7 @@ import prod from "./startup/prod.js";
 
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://insta-clone-ui.netlify.app/",
     },
 });
 
