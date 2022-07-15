@@ -13,8 +13,8 @@ import db from "./startup/db.js";
 import prod from "./startup/prod.js";
 
 const corsOptions = {
-    origin: "http://localhost:3000/",
     exposedHeaders: "x_auth_token",
+    origin: "http://localhost:3000/",
 };
 
 app.use(express.json());
