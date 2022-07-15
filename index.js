@@ -13,6 +13,7 @@ import db from "./startup/db.js";
 import prod from "./startup/prod.js";
 
 const corsOptions = {
+    origin: "http://localhost:3000/",
     exposedHeaders: "x_auth_token",
 };
 
@@ -26,7 +27,6 @@ config();
 const io = new Server(httpServer, {
     cors: {
         origin: "http://localhost:3000/",
-        allowedHeaders: ["x_auth_token"],
     },
 });
 
