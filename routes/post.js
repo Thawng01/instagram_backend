@@ -145,10 +145,13 @@ router.delete("/:postId/:userId", async (req, res) => {
     const { postId, userId } = req.params;
 
     const user = await User.findById({ _id: userId });
-    const index = user.posts.findIndex((p) => p._id === postId);
-    user.posts.splice(index, 1);
+    const postIndex = user.posts.findIndex((p) => p._id === postId);
+    user.posts.splice(postIndex, 1);
 
-    const result = await Post.findByIdAndRemove(postId);
+    const savedPostIndex = user.saved.findIndex((p) => p._id === postId);
+    user.saved.splice(savedPostIndex, 1);
+
+    await Post.findByIdAndRemove(postId);
     await user.save();
 
     res.status(200).send();
