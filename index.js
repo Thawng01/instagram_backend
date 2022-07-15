@@ -14,6 +14,8 @@ import prod from "./startup/prod.js";
 
 const corsOptions = {
     exposedHeaders: "x_auth_token",
+    origin: "http://localhost:3000",
+    credentials: true,
 };
 
 app.use(express.json());
@@ -25,9 +27,8 @@ config();
 
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:3000/",
-        allowedHeaders: ["x_auth_token"],
-        credentials: true,
+        origin: "http://localhost:3000",
+        methods: ["GET", "POST"],
     },
 });
 
