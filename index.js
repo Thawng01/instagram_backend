@@ -14,7 +14,7 @@ import prod from "./startup/prod.js";
 
 const corsOptions = {
     exposedHeaders: "x_auth_token",
-    origin: "http://localhost:3000",
+    origin: "https://insta-clone-ui.netlify.app/",
 };
 
 app.use(express.json());
@@ -26,7 +26,7 @@ config();
 
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:3000",
+        origin: "https://insta-clone-ui.netlify.app/",
         methods: ["GET", "POST"],
     },
 });
