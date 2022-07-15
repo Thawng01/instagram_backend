@@ -25,7 +25,7 @@ config();
 
 const io = new Server(httpServer, {
     cors: {
-        origin: "https://insta-clone-ui.netlify.app/",
+        origin: "http://localhost:3000/",
         allowedHeaders: ["x_auth_token"],
     },
 });
