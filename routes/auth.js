@@ -64,12 +64,6 @@ router.post("/account/login", async (req, res) => {
 
     // check if user email is confirmed or not
     if (!user.confirmed) {
-        // transport.sendMail({
-        //     subject: "Confirmation code",
-        //     text: code,
-        //     from: "Instagram clone",
-        //     to: user.email,
-        // });
         return res.status(200).send({
             id: user._id,
             confirmed: user.confirmed,
