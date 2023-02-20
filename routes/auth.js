@@ -48,6 +48,7 @@ router.post("/:id", async (req, res) => {
 
     user.confirmed = true;
     const token = user.generateAuthToken();
+
     await user.save();
     res.header("x_auth_token", token).status(200).send({ id: user._id });
 });
