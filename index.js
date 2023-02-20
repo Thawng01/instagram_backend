@@ -24,10 +24,9 @@ route(app);
 db();
 config();
 
-// https://insta-clone-ui.netlify.app/
 const io = new Server(httpServer, {
     cors: {
-        origin: "http://localhost:3000/",
+        origin: "https://insta-clone-ui.netlify.app/",
         methods: ["GET", "POST"],
     },
 });
