@@ -56,7 +56,6 @@ router.post("/:id", async (req, res) => {
 //login
 router.post("/account/login", async (req, res) => {
     const { email, password } = req.body;
-
     const { error } = validateLogin(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
@@ -86,7 +85,7 @@ router.post("/account/login", async (req, res) => {
 
 function validateLogin(input) {
     const schema = Joi.object({
-        email: Joi.string().email().max(40).required().label("Email"),
+        email: Joi.string().email().required().label("Email"),
         password: Joi.string().max(200).required().label("Password"),
     });
 
