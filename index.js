@@ -14,7 +14,7 @@ import prod from "./startup/prod.js";
 
 const corsOptions = {
     exposedHeaders: "x_auth_token",
-    // origin: "https://insta-clone-ui.netlify.app/",
+    origin: "https://insta-clone-ui.netlify.app/",
 };
 
 app.use(express.json());
